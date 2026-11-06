@@ -1,4 +1,4 @@
-# BV App - Cenários de testes funcionais
+# BVApp - Cenários de testes funcionais
 
 ## Contexto da atividade
 
