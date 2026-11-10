@@ -1,4 +1,4 @@
-# BV App - Cenários de gestão de serviços
+# BVApp - Cenários de gestão de serviços
 
 ## Visão geral
 
