@@ -1,8 +1,8 @@
 '''
-UC004 - Buscar e filtrar Ordens de Serviço
+UC004 - Consultar, filtrar e exportar Ordens de Serviço
 
 Objetivo:
-Permitir que o usuário pesquise, filtre, ordene e navegue pelas Ordens de Serviço, apresentando somente os registros que atendam às condições da consulta.
+Permitir que o usuário pesquise, filtre, ordene e navegue pelas Ordens de Serviço e exporte em PDF ou CSV todos os registros da consulta, apresentando somente os que atendam às condições aplicadas.
 
 Requisitos relacionados:
 - Busca: CAs 23697, 23698, 23699, 23700 e 33790.
@@ -10,6 +10,14 @@ Requisitos relacionados:
 - Ordenação: CAs 33796, 33797 e 33798.
 - Consulta e autorização: CAs 23674, 23676, 33781 e 33782.
 - Paginação: CAs 25697, 25698 e 25699.
+- Exportação (acesso, formato e filtros): CAs 23774, 23775, 23776, 23777 e 33788.
+- Exportação (abrangência e conteúdo): CA 23778.
+- Exportação (download e mensagem de sucesso): CAs 23779 e 23780.
+- Exportação (ausência de dados): CA 23781.
+- Exportação (nome do arquivo): CA 23782.
+- Exportação (autorização): CA 23783.
+- Exportação (carregamento e retorno): CAs 23784, 34140 e 34141.
+- Exportação (formato não suportado): CA 34142.
 
 Ator:
 - Usuário autenticado com SERVICO_LISTAR.
@@ -21,8 +29,10 @@ Pré-condições:
 - Existem serviço S01 e prestador P01 cadastrados e não removidos.
 - O serviço S01 está atualmente vinculado ao ativo A01.
 - Existem 12 OS não removidas que atendem à combinação de filtros utilizada neste cenário, incluindo OS_REFERENCIA, cujo identificador gerado pelo sistema é conhecido.
-- Existem outras OS que não atendem a essa combinação.
+- Existem outras OS que não atendem a essa combinação, incluindo uma OS de controle fora dos filtros.
+- Existe uma OS removida que atende aos demais filtros, para conferir que não será incluída na consulta nem no arquivo.
 - Os identificadores e as datas da massa são conhecidos, permitindo comparar os registros esperados.
+- Os dados são planejados para documentação, sem execução de testes.
 
 Dados planejados:
 - Data de referência: 01/11/2026, às 12:00 UTC.
@@ -36,6 +46,7 @@ Dados planejados:
 - Status de OS_REFERENCIA: Aberta.
 - Filtros combinados: status Aberta, serviço S01, prestador P01, ativo A01, abertura entre 02/11/2026 e 04/11/2026, previsão entre 05/11/2026 e 07/11/2026.
 - Quantidade inicial por página: 10 registros.
+- Total esperado na consulta: 12 registros correspondentes.
 
 As 12 OS previamente preparadas atendem aos mesmos filtros.
 Essas quantidades são dados de teste, não limites da funcionalidade.
@@ -104,6 +115,50 @@ Essas quantidades são dados de teste, não limites da funcionalidade.
 # O ator limpa o campo de pesquisa.
 
 # O sistema remove a condição textual e apresenta a primeira página da consulta sem os filtros anteriores.
+
+# O ator aplica novamente os filtros planejados, com 10 registros por página.
+
+# O sistema apresenta 12 registros correspondentes, distribuídos em duas páginas.
+
+# O ator confere os identificadores esperados nas duas páginas e retorna à primeira página.
+
+# O ator seleciona "Exportar". [A7][A10]
+
+# O sistema solicita a seleção do formato.
+
+# O ator seleciona PDF e confirma a exportação. [A8]
+
+# O sistema apresenta um modal de carregamento durante a geração. [A9]
+
+# Ao concluir, o sistema encerra o carregamento, disponibiliza o arquivo para download e apresenta: "Arquivo gerado com sucesso!"
+
+# O ator confere que o PDF contém os 12 registros da consulta, incluindo os que estavam na segunda página.
+
+# O ator verifica que a OS de controle fora dos filtros não aparece no arquivo.
+
+# O ator verifica que a OS removida também não aparece no arquivo.
+
+# Para cada registro, o ator confere:
+# - Identificador da OS;
+# - Nome do serviço vinculado;
+# - Prestador;
+# - Data de abertura;
+# - Data prevista de conclusão;
+# - Data de conclusão, quando informada;
+# - Custo;
+# - Status.
+
+# O ator verifica o nome do arquivo no padrão: ordens_servico_AAAAMMDD_HHmmss.pdf. [P1]
+
+# O ator repete a exportação selecionando CSV.
+
+# O sistema apresenta o carregamento e, ao concluir, disponibiliza o arquivo e informa o sucesso.
+
+# O ator confere os mesmos 12 registros e os campos exigidos, acrescentando:
+# - Descrição da OS;
+# - Nome do solicitante.
+
+# O ator verifica o nome do arquivo no padrão: ordens_servico_AAAAMMDD_HHmmss.csv. [P1]
 
 
 # [A1] - PESQUISA SEM CORRESPONDÊNCIA
@@ -202,15 +257,49 @@ Essas quantidades são dados de teste, não limites da funcionalidade.
 # O sistema apresenta a primeira página dos resultados correspondentes à pesquisa que permaneceu aplicada.
 
 
-# [A7] - CONSULTAR SEM AUTORIZAÇÃO
+# [A7] - CONSULTAR OU EXPORTAR SEM AUTORIZAÇÃO
 # ---------------------------------------------------------------
 
-# Um usuário não autenticado ou sem SERVICO_LISTAR tenta solicitar a consulta de Ordens de Serviço.
+# Um usuário não autenticado ou sem SERVICO_LISTAR tenta solicitar a consulta ou a exportação de Ordens de Serviço.
 
-# O sistema bloqueia a consulta e não apresenta os dados solicitados.
+# O sistema bloqueia a operação e não apresenta nem gera os dados solicitados.
 
 
-# [A8] - FALHA AO CARREGAR A CONSULTA
+# [A8] - FORMATO NÃO SUPORTADO
+# ---------------------------------------------------------------
+
+# É considerada uma solicitação de exportação em formato diferente de PDF ou CSV.
+
+# O sistema rejeita a solicitação e informa que o formato não é suportado.
+
+# O sistema não disponibiliza um arquivo como se a operação tivesse sido concluída com sucesso.
+
+
+# [A9] - FALHA NA GERAÇÃO DO ARQUIVO
+# ---------------------------------------------------------------
+
+# O ator solicita uma exportação válida.
+
+# Durante a geração, ocorre uma falha.
+
+# O sistema encerra o carregamento e informa a falha.
+
+# O sistema não disponibiliza arquivo inválido nem apresenta a mensagem de sucesso.
+
+
+# [A10] - EXPORTAR CONSULTA SEM RESULTADOS
+# ---------------------------------------------------------------
+
+# O ator aplica filtros que não correspondem a nenhuma OS.
+
+# O ator solicita a exportação.
+
+# O sistema informa: "Não há dados disponíveis para exportação"
+
+# O sistema encerra o carregamento e não gera o arquivo.
+
+
+# [A11] - FALHA AO CARREGAR A CONSULTA
 # ---------------------------------------------------------------
 
 # O ator solicita a consulta com uma sessão autorizada, mas ocorre uma falha no carregamento dos dados.
@@ -273,6 +362,44 @@ Essas quantidades são dados de teste, não limites da funcionalidade.
 # Não define por suposição outros campos pesquisáveis ou um tamanho mínimo de termo ainda não confirmado.
 
 
+# [RN6] - AUTORIZAÇÃO
+# ---------------------------------------------------------------
+
+# A consulta e a exportação exigem usuário autenticado com SERVICO_LISTAR.
+
+# Solicitações sem autenticação ou sem a permissão devem ser bloqueadas.
+
+
+# [RN7] - ABRANGÊNCIA DA EXPORTAÇÃO
+# ---------------------------------------------------------------
+
+# A exportação deve considerar os filtros aplicados à consulta.
+
+# O arquivo deve conter todos os registros correspondentes, independentemente da página exibida.
+
+# Registros fora dos filtros ou removidos não devem ser incluídos.
+
+# Este cenário não define por suposição se o termo pesquisado e a ordenação também são aplicados ao arquivo, pois os critérios de aceitação citam apenas os filtros.
+
+
+# [RN8] - CONTEÚDO POR FORMATO
+# ---------------------------------------------------------------
+
+# O PDF deve conter os campos definidos no critério 23778.
+
+# O CSV deve conter esses campos e acrescentar a descrição da OS e o nome do solicitante.
+
+# Uma data de conclusão ausente não deve ser preenchida com um valor inventado.
+
+
+# [RN9] - RETORNO DA OPERAÇÃO
+# ---------------------------------------------------------------
+
+# A mensagem de sucesso somente deve ser apresentada após a geração e a disponibilização do arquivo.
+
+# Carregamento, ausência de dados e falha devem ter tratamentos distintos.
+
+
 # RESULTADOS ESPERADOS
 # ---------------------------------------------------------------
 
@@ -284,6 +411,10 @@ Essas quantidades são dados de teste, não limites da funcionalidade.
 
 # Limpar os filtros não remove a pesquisa textual.
 
-# Uma falha de consulta não é apresentada como ausência de registros.
+# O PDF e o CSV contêm todos os 12 registros da consulta, sem a OS de controle e sem a OS removida.
 
-# A busca, os filtros, a ordenação e a paginação não alteram os registros previamente preparados.
+# Os arquivos seguem o padrão de nome e os campos definidos para cada formato.
+
+# Uma falha de consulta ou de geração não é apresentada como ausência de registros nem como sucesso.
+
+# A busca, os filtros, a ordenação, a paginação e a exportação não alteram os registros previamente preparados.
