@@ -20,7 +20,7 @@ Requisitos relacionados:
 - Exportação (formato não suportado): CA 34142.
 
 Ator:
-- Usuário autenticado com SERVICO_LISTAR.
+- Técnico autenticado com SERVICO_LISTAR.
 
 Autoria:
 - Mariana Farias de Brito.

@@ -11,7 +11,7 @@ Requisitos relacionados:
 - Remoção: CAs 23467, 23468, 23469, 23470 e 23471.
 
 Ator:
-- Usuário autenticado com as permissões necessárias para cadastrar, consultar, editar e remover OS.
+- Técnico autenticado com SERVICO_ADICIONAR, SERVICO_LISTAR, SERVICO_EDITAR e SERVICO_EXCLUIR.
 
 Autoria:
 - Mariana Farias de Brito.

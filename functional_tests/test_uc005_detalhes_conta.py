@@ -10,7 +10,7 @@ Requisitos relacionados:
 - Carregamento e retorno à listagem: 34157 e 34158.
 
 Ator:
-- Usuário autenticado com as permissões SERVICO_LISTAR, SERVICO_VISUALIZAR e CONTA_VISUALIZAR.
+- Técnico autenticado com SERVICO_LISTAR, SERVICO_VISUALIZAR e CONTA_VISUALIZAR.
 
 Autoria:
 - Mariana Farias de Brito.

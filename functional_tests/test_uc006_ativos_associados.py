@@ -11,7 +11,7 @@ Requisitos relacionados:
 - Preservação da listagem: 34158.
 
 Ator:
-- Usuário autenticado com as permissões SERVICO_LISTAR, SERVICO_VISUALIZAR e ATIVO_VISUALIZAR.
+- Técnico autenticado com SERVICO_LISTAR, SERVICO_VISUALIZAR e ATIVO_VISUALIZAR.
 
 Autoria:
 - Mariana Farias de Brito.

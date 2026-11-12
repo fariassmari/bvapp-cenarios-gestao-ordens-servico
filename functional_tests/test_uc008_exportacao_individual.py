@@ -13,7 +13,7 @@ Requisitos relacionados:
 - Ação no painel de detalhes: 34159.
 
 Ator:
-- Usuário autenticado com as permissões SERVICO_LISTAR, SERVICO_VISUALIZAR, ATIVO_VISUALIZAR e CONTA_VISUALIZAR.
+- Técnico autenticado com SERVICO_LISTAR, SERVICO_VISUALIZAR, ATIVO_VISUALIZAR e CONTA_VISUALIZAR.
 
 Autoria:
 - Mariana Farias de Brito.

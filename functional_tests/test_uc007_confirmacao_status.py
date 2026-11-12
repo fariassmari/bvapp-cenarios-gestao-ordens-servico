@@ -13,7 +13,7 @@ Requisitos relacionados:
 - Conclusão independentemente de nota fiscal: CA 23759.
 
 Ator:
-- Usuário autenticado com as permissões SERVICO_LISTAR, SERVICO_VISUALIZAR e SERVICO_EDITAR.
+- Técnico autenticado com SERVICO_LISTAR, SERVICO_VISUALIZAR e SERVICO_EDITAR.
 
 Autoria:
 - Mariana Farias de Brito.

@@ -14,10 +14,10 @@ Requisitos relacionados:
 - Remoção: CAs 23466 e 23472.
 
 Ator:
-- Usuário A: autenticado com SERVICO_ADICIONAR, SERVICO_LISTAR,
+- Técnico A: autenticado com SERVICO_ADICIONAR, SERVICO_LISTAR,
   SERVICO_VISUALIZAR, SERVICO_EDITAR e SERVICO_EXCLUIR.
-- Usuário B: autenticado, mas sem a permissão específica da operação avaliada.
-- Usuário não autenticado.
+- Técnico B: autenticado, mas sem a permissão específica da operação avaliada.
+- Técnico não autenticado.
 
 Autoria:
 - Mariana Farias de Brito.

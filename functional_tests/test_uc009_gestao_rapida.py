@@ -18,7 +18,7 @@ Requisitos relacionados:
 - Carregamento, ausência de resultados e falha em Atrasadas: CAs 34188 e 34189.
 
 Ator:
-- Usuário autenticado com a permissão SERVICO_LISTAR.
+- Técnico autenticado com SERVICO_LISTAR.
 
 Autoria:
 - Mariana Farias de Brito.
