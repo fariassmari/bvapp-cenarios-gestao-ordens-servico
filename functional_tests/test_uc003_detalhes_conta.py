@@ -1,5 +1,5 @@
 '''
-UC005 - Visualizar detalhes da OS e consultar a conta associada
+UC003 - Visualizar detalhes da OS e consultar a conta associada
 
 Objetivo: Permitir que o usuário consulte os detalhes de uma Ordem de Serviço, a conta associada e seus pagamentos.
 
@@ -38,13 +38,13 @@ Dados planejados:
 # [FP] - FLUXO PRINCIPAL
 # ---------------------------------------------------------------
 
-# O ator acessa a listagem e localiza OS_REFERENCIA pelo identificador conhecido.
+# 1. O ator acessa a listagem e localiza OS_REFERENCIA pelo identificador conhecido.
 
-# O ator seleciona a ação de visualização de OS_REFERENCIA.
+# 2. O ator seleciona a ação de visualização de OS_REFERENCIA.
 
-# O sistema abre o painel lateral inicialmente na aba "Detalhes".
+# 3. O sistema abre o painel lateral inicialmente na aba "Detalhes".
 
-# O ator verifica que as informações correspondem à OS selecionada:
+# 4. O ator verifica que as informações correspondem à OS selecionada:
 # - Identificador;
 # - Status "Aberta";
 # - Nome do serviço S01;
@@ -58,23 +58,23 @@ Dados planejados:
 # - Data prevista de conclusão 05/11/2026;
 # - Data de conclusão apresentada como "Não informada" ou "-". [RN1]
 
-# O ator acessa a aba "Conta associada".
+# 5. O ator acessa a aba "Conta associada".
 
-# O sistema informa "Nenhuma conta associada.", pois OS_REFERENCIA não possui conta vinculada. [A1][A2][A3][A4]
+# 6. O sistema informa "Nenhuma conta associada.", pois OS_REFERENCIA não possui conta vinculada. [A1][A2][A3][A4]
 
-# O ator seleciona "Voltar" ou fecha o painel.
+# 7. O ator seleciona "Voltar" ou fecha o painel.
 
-# O sistema encerra a visualização e preserva a página, a busca, os filtros e a ordenação da listagem.
+# 8. O sistema encerra a visualização e preserva a página, a busca, os filtros e a ordenação da listagem.
 
 
 # [A1] - CONSULTAR CONTA ASSOCIADA E PAGAMENTOS
 # ---------------------------------------------------------------
 
-# O ator utiliza a OS de preparação que possui uma única conta associada com elegibilidade confirmada. [P1]
+# 1. O ator utiliza a OS de preparação que possui uma única conta associada com elegibilidade confirmada. [P1]
 
-# O ator abre a visualização e acessa "Conta associada".
+# 2. O ator abre a visualização e acessa "Conta associada".
 
-# O sistema apresenta:
+# 3. O sistema apresenta:
 # - Nome da conta;
 # - Descrição, quando informada;
 # - Valor total;
@@ -84,9 +84,9 @@ Dados planejados:
 # - Quantidade de parcelas pagas e quantidade total de parcelas;
 # - Informação de recorrência e intervalo, quando aplicável.
 
-# O ator compara os valores exibidos com os dados conhecidos da conta vinculada à OS.
+# 4. O ator compara os valores exibidos com os dados conhecidos da conta vinculada à OS.
 
-# O sistema apresenta os pagamentos não removidos, informando:
+# 5. O sistema apresenta os pagamentos não removidos, informando:
 # - Número da parcela;
 # - Valor da parcela;
 # - Data de vencimento;
@@ -94,55 +94,55 @@ Dados planejados:
 # - Data do pagamento, quando registrada;
 # - Indicação de comprovante aprovado associado, quando existente.
 
-# O ator verifica que os pagamentos estão ordenados por vencimento crescente e, em caso de empate, pelo número da parcela.
+# 6. O ator verifica que os pagamentos estão ordenados por vencimento crescente e, em caso de empate, pelo número da parcela.
 
-# Para conferir o desempate, a preparação contém as parcelas 1 e 2 com vencimento em 05/11/2026 e a parcela 3 com vencimento em 10/11/2026.
+# 7. Para conferir o desempate, a preparação contém as parcelas 1 e 2 com vencimento em 05/11/2026 e a parcela 3 com vencimento em 10/11/2026.
 
-# O resultado esperado é a apresentação das parcelas na ordem 1, 2 e 3, independentemente da ordem de preparação dos registros.
+# 8. O resultado esperado é a apresentação das parcelas na ordem 1, 2 e 3, independentemente da ordem de preparação dos registros.
 
-# A consulta da indicação de comprovante não pressupõe uma ação de anexar ou abrir o arquivo dentro da OS. [RN2]
+# 9. A consulta da indicação de comprovante não pressupõe uma ação de anexar ou abrir o arquivo dentro da OS. [RN2]
 
 
 # [A2] - CONTA SEM PAGAMENTOS
 # ---------------------------------------------------------------
 
-# O ator abre uma OS de preparação com conta elegível associada, mas sem pagamentos cadastrados.
+# 1. O ator abre uma OS de preparação com conta elegível associada, mas sem pagamentos cadastrados.
 
-# O ator acessa "Conta associada".
+# 2. O ator acessa "Conta associada".
 
-# O sistema apresenta os dados da conta e informa: "Nenhum pagamento encontrado."
+# 3. O sistema apresenta os dados da conta e informa: "Nenhum pagamento encontrado."
 
 
 # [A3] - USUÁRIO SEM PERMISSÃO PARA CONSULTAR A CONTA
 # ---------------------------------------------------------------
 
-# O ator utiliza uma sessão com SERVICO_VISUALIZAR, mas sem CONTA_VISUALIZAR.
+# 1. O ator utiliza uma sessão com SERVICO_VISUALIZAR, mas sem CONTA_VISUALIZAR.
 
-# O ator abre os detalhes da OS.
+# 2. O ator abre os detalhes da OS.
 
-# O sistema permite consultar os detalhes autorizados da OS, mas bloqueia o acesso aos dados da conta e de seus pagamentos.
+# 3. O sistema permite consultar os detalhes autorizados da OS, mas bloqueia o acesso aos dados da conta e de seus pagamentos.
 
-# A permissão de visualizar a OS não substitui a permissão necessária para consultar a conta.
+# 4. A permissão de visualizar a OS não substitui a permissão necessária para consultar a conta.
 
 
 # [A4] - CARREGAMENTO E FALHA NA CONSULTA
 # ---------------------------------------------------------------
 
-# O ator acessa uma aba do painel lateral.
+# 1. O ator acessa uma aba do painel lateral.
 
-# Enquanto a consulta estiver em andamento, o sistema apresenta uma indicação de carregamento.
+# 2. Enquanto a consulta estiver em andamento, o sistema apresenta uma indicação de carregamento.
 
-# Caso a consulta falhe, o sistema informa que não foi possível carregar os dados.
+# 3. Caso a consulta falhe, o sistema informa que não foi possível carregar os dados.
 
-# O sistema não apresenta a falha como se não existissem registros.
+# 4. O sistema não apresenta a falha como se não existissem registros.
 
 
 # [A5] - SERVIÇO COM PERIODICIDADE POSITIVA
 # ---------------------------------------------------------------
 
-# O ator consulta uma OS de preparação cujo serviço possui periodicidade de 30 dias.
+# 1. O ator consulta uma OS de preparação cujo serviço possui periodicidade de 30 dias.
 
-# O sistema apresenta a recorrência em dias, correspondente ao valor 30, em vez de apresentar "Pontual".
+# 2. O sistema apresenta a recorrência em dias, correspondente ao valor 30, em vez de apresentar "Pontual".
 
 
 # [RN1] - FORMATAÇÃO E DADOS OPCIONAIS

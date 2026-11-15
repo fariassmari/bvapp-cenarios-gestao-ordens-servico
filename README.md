@@ -1,61 +1,106 @@
-# BV App - Cenários de gestão de serviços
+# Cenários de teste — Gestão de Ordens de Serviço do BVApp
 
-## Visão geral
+## Apresentação
 
-Este repositório reúne a documentação e os cenários funcionais do módulo de Gestão de Serviços do BVapp. A intenção é manter a rastreabilidade entre requisitos, cenários e arquivos de teste, facilitando a leitura e a navegação entre os materiais da entrega.
+Este repositório contém a documentação dos cenários de teste do módulo de Gestão de Ordens de Serviço do BVApp, elaborada para a disciplina de Verificação, Validação e Testes de Software.
 
-## Navegação rápida
+O módulo integra a gestão de serviços de uma cooperativa de energia solar. Os cenários descrevem o comportamento esperado nas operações com Ordens de Serviço (OS), incluindo consultas, alterações, exportações e controle de acesso.
 
-- [Requisitos funcionais](requisitos_funcionais/requisitos-funcionais.md)
-- [README de requisitos](requisitos_funcionais/README.md)
-- [Cenários de testes](functional_tests/README.md)
+A documentação foi organizada a partir dos requisitos e critérios de aceitação relacionados em cada cenário. Os arquivos registram os fluxos principais, as situações alternativas e as regras de negócio consideradas na especificação.
 
-## Estrutura do projeto
+## Objetivo
+
+Documentar cenários que permitam verificar os principais comportamentos da Gestão de Ordens de Serviço, contemplando:
+
+- Cadastro, consulta, edição e remoção de OS;
+- Pesquisa, filtros, ordenação e paginação da listagem;
+- Exportação da consulta em PDF e CSV;
+- Visualização dos detalhes da OS, da conta associada e dos pagamentos;
+- Consulta dos ativos associados ao serviço da OS;
+- Confirmação ou cancelamento da alteração de status;
+- Exportação individual de uma OS em PDF;
+- Indicadores por status e acesso às listagens pela Gestão rápida;
+- Permissões de acesso, falhas e restrições das operações.
+
+Cada cenário apresenta ações do ator e respostas esperadas do sistema. Quando uma regra depende de esclarecimento, a pendência é registrada no próprio cenário, sem presumir um comportamento não confirmado.
+
+## Organização dos cenários
+
+Os cenários estão em arquivos individuais, identificados de UC001 a UC007. O UC001 reúne as operações de cadastro, consulta, edição e remoção; os demais detalham funcionalidades e situações complementares.
 
 ```text
 bvapp-cenarios/
 ├── README.md
-├── requisitos_funcionais/
-│   ├── README.md
-│   └── requisitos-funcionais.md
-├── functional_tests/
-│   ├── README.md
-│   ├── test_uc001_manter_ordem_servico.py
-│   ├── test_uc002_autorizacao_crud.py
-│   ├── test_uc003_cancelamentos_crud.py
-│   ├── test_uc004_consultar_filtrar_exportar.py
-│   ├── test_uc005_detalhes_conta.py
-│   ├── test_uc006_ativos_associados.py
-│   ├── test_uc007_confirmacao_status.py
-│   ├── test_uc008_exportacao_individual.py
-│   └── test_uc009_gestao_rapida.py
-└── .git/
+└── functional_tests/
+    ├── README.md
+    ├── __init__.py
+    ├── test_uc001_manter_ordem_servico.py
+    ├── test_uc002_consultar_filtrar_exportar.py
+    ├── test_uc003_detalhes_conta.py
+    ├── test_uc004_ativos_associados.py
+    ├── test_uc005_confirmacao_status.py
+    ├── test_uc006_exportacao_individual.py
+    └── test_uc007_gestao_rapida.py
 ```
 
-## Casos de uso e arquivos
-
-| Caso | Objetivo | Arquivo |
+| Caso de uso | Funcionalidade | Arquivo |
 | --- | --- | --- |
-| UC001 | Manter ordem de serviço | [test_uc001_manter_ordem_servico.py](functional_tests/test_uc001_manter_ordem_servico.py) |
-| UC002 | Autorização CRUD | [test_uc002_autorizacao_crud.py](functional_tests/test_uc002_autorizacao_crud.py) |
-| UC003 | Cancelamentos CRUD | [test_uc003_cancelamentos_crud.py](functional_tests/test_uc003_cancelamentos_crud.py) |
-| UC004 | Consultar, filtrar e exportar | [test_uc004_consultar_filtrar_exportar.py](functional_tests/test_uc004_consultar_filtrar_exportar.py) |
-| UC005 | Detalhes da conta | [test_uc005_detalhes_conta.py](functional_tests/test_uc005_detalhes_conta.py) |
-| UC006 | Ativos associados | [test_uc006_ativos_associados.py](functional_tests/test_uc006_ativos_associados.py) |
-| UC007 | Confirmação de status | [test_uc007_confirmacao_status.py](functional_tests/test_uc007_confirmacao_status.py) |
-| UC008 | Exportação individual | [test_uc008_exportacao_individual.py](functional_tests/test_uc008_exportacao_individual.py) |
-| UC009 | Gestão rápida | [test_uc009_gestao_rapida.py](functional_tests/test_uc009_gestao_rapida.py) |
+| UC001 | Manter Ordem de Serviço | [test_uc001_manter_ordem_servico.py](functional_tests/test_uc001_manter_ordem_servico.py) |
+| UC002 | Consultar, filtrar e exportar Ordens de Serviço | [test_uc002_consultar_filtrar_exportar.py](functional_tests/test_uc002_consultar_filtrar_exportar.py) |
+| UC003 | Visualizar detalhes da OS e consultar a conta associada | [test_uc003_detalhes_conta.py](functional_tests/test_uc003_detalhes_conta.py) |
+| UC004 | Visualizar ativos associados à Ordem de Serviço | [test_uc004_ativos_associados.py](functional_tests/test_uc004_ativos_associados.py) |
+| UC005 | Confirmar ou cancelar a alteração de status da OS | [test_uc005_confirmacao_status.py](functional_tests/test_uc005_confirmacao_status.py) |
+| UC006 | Exportar o PDF individual de uma Ordem de Serviço | [test_uc006_exportacao_individual.py](functional_tests/test_uc006_exportacao_individual.py) |
+| UC007 | Consultar indicadores e acessar listagens pela Gestão rápida | [test_uc007_gestao_rapida.py](functional_tests/test_uc007_gestao_rapida.py) |
 
-## Requisitos funcionais
+Consulte também o [README dos cenários funcionais](functional_tests/README.md).
 
-Os requisitos do módulo são documentados em [requisitos_funcionais/requisitos-funcionais.md](requisitos_funcionais/requisitos-funcionais.md), com a organização por RF02001 a RF02009, correspondendo aos cenários de gestão de ordens de serviço desta entrega.
+## Estrutura de cada cenário
 
-## Informações da atividade
+Sempre que aplicável, cada arquivo apresenta:
 
-- Autor: Mariana Farias de Brito
-- Instituição: Instituto Federal da Paraíba - IFPB
-- Disciplina: Verificação, Validação e Testes de Software
-- Atividade: Mini projeto individual - N3
-- Entrega: 06/11/2026
+- **Identificador e título:** identificação do caso de uso.
+- **Autoria e objetivo:** responsável e finalidade do cenário.
+- **Requisitos relacionados:** critérios de aceitação associados.
+- **Ator e pré-condições:** permissões e condições necessárias para iniciar o fluxo.
+- **Dados planejados:** informações usadas para descrever as verificações.
+- **Fluxo principal `[FP]`:** sequência esperada de ações e respostas.
+- **Fluxos alternativos `[A1]`, `[A2]` etc.:** variações, erros, cancelamentos e restrições.
+- **Regras de negócio `[RN1]`, `[RN2]` etc.:** condições que orientam o comportamento esperado.
+- **Pendências:** pontos que ainda exigem esclarecimento, quando houver.
 
-Esta entrega tem caráter documental e não executa a aplicação BVapp; o objetivo é registrar o comportamento esperado, regras de negócio e critérios de validação dos cenários.
+Os passos do fluxo principal e de cada fluxo alternativo são numerados separadamente, a partir de 1. Referências entre colchetes relacionam os passos às variações, regras ou pendências descritas no arquivo.
+
+## Situações alternativas contempladas
+
+Além dos fluxos principais, os cenários incluem, conforme a funcionalidade:
+
+- Dados obrigatórios ausentes, valores inválidos e datas inconsistentes;
+- Pesquisa ou filtros sem resultados;
+- Falha no carregamento de consultas ou na geração de arquivos;
+- Usuário sem autenticação ou sem a permissão necessária;
+- Cancelamento de cadastro, edição, remoção ou alteração de status;
+- Restrição de remoção de OS com conta vinculada;
+- Ausência de conta, pagamentos ou ativos associados;
+- Tentativa de transição a partir de um status final.
+
+## Rastreabilidade e ferramentas
+
+Os arquivos listam os critérios de aceitação relacionados a cada caso de uso. Essa identificação permite localizar os requisitos contemplados e revisar os cenários quando as regras forem esclarecidas ou alteradas.
+
+- **Python:** extensão usada para organizar os arquivos documentais.
+- **Git e GitHub:** versionamento e disponibilização do projeto.
+
+Os arquivos `.py` contêm descrições e comentários estruturados. Eles não são testes automatizados executáveis.
+
+## Escopo da entrega
+
+Esta entrega corresponde à especificação e organização dos cenários de teste. Não inclui a implementação do BVApp, a criação de interfaces, a automação ou a execução dos testes.
+
+## Responsável
+
+- **Autora:** Mariana Farias de Brito
+- **Instituição:** Instituto Federal da Paraíba (IFPB)
+- **Disciplina:** Verificação, Validação e Testes de Software
+- **Atividade:** Mini projeto individual — N3
+- **Entrega:** 06/11/2026

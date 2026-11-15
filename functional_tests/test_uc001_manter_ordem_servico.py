@@ -37,14 +37,15 @@ O status inicial considera essa data em UTC, conforme CA04 revisado.
 # [FP] - FLUXO PRINCIPAL
 # ---------------------------------------------------------------
 
-# O ator acessa a listagem de Ordens de Serviço.
+# 1. O ator acessa a listagem de Ordens de Serviço.
 
-# O sistema apresenta a listagem e disponibiliza a ação "Adicionar", conforme a permissão do ator.
+# 2. O sistema apresenta a listagem e disponibiliza a ação "Adicionar", conforme a permissão do ator.
 
-# O ator seleciona "Adicionar".
+# 3. O ator seleciona "Adicionar".
 
-# O sistema abre o formulário de cadastro de Ordem de Serviço.
-# O ator verifica os campos:
+# 4. O sistema abre o formulário de cadastro de Ordem de Serviço.
+
+# 5. O ator verifica os campos:
 # - Descrição da Ordem de Serviço;
 # - Serviço;
 # - Prestador responsável;
@@ -53,129 +54,132 @@ O status inicial considera essa data em UTC, conforme CA04 revisado.
 # - Data prevista de conclusão;
 # - Data de conclusão.
 #
-# O ator verifica as opções "Salvar" e "Cancelar". [A4]
+# 6. O ator verifica as opções "Salvar" e "Cancelar". [A4]
 
-# O ator seleciona o serviço e o prestador previamente cadastrados.
+# 7. O ator seleciona o serviço e o prestador previamente cadastrados.
 
-# O sistema apresenta os nomes selecionados nos respectivos campos.
+# 8. O sistema apresenta os nomes selecionados nos respectivos campos.
 
-# O ator preenche a descrição, o custo e as datas com os dados planejados, mantendo a conclusão sem preenchimento.
+# 9. O ator preenche a descrição, o custo e as datas com os dados planejados, mantendo a conclusão sem preenchimento.
 
-# O ator seleciona "Salvar".
+# 10. O ator seleciona "Salvar".
 
-# O sistema valida os campos conforme [RN1] e [RN2]. [A5]
+# 11. O sistema valida os campos conforme [RN1] e [RN2]. [A5]
 
-# O sistema gera o identificador da OS.
+# 12. O sistema gera o identificador da OS.
 # Como a abertura é futura e não há conclusão, o status inicial é "Aberta", conforme [RN3].
 
-# Após confirmar a gravação, o sistema apresenta: "Ordem de Serviço cadastrada com sucesso!"
+# 13. Após confirmar a gravação, o sistema apresenta: "Ordem de Serviço cadastrada com sucesso!"
 
-# O ator consulta a listagem e localiza a OS cadastrada. [A1]
+# 14. O ator consulta a listagem e localiza a OS cadastrada. [A1]
 
-# O ator verifica que o identificador, o serviço, o prestador, o custo e os demais dados correspondem ao cadastro realizado.
+# 15. O ator verifica que o identificador, o serviço, o prestador, o custo e os demais dados correspondem ao cadastro realizado.
 
-# O ator realiza a edição descrita em [A2].
+# 16. O ator realiza a edição descrita em [A2].
 
-# Após conferir os dados atualizados, o ator realiza a remoção descrita em [A3].
+# 17. Após conferir os dados atualizados, o ator realiza a remoção descrita em [A3].
 
 
 # [A1] - LOCALIZAR A ORDEM DE SERVIÇO
 # ---------------------------------------------------------------
 
-# O ator acessa a listagem de Ordens de Serviço.
+# 1. O ator acessa a listagem de Ordens de Serviço.
 
-# O sistema apresenta os registros disponíveis.
+# 2. O sistema apresenta os registros disponíveis.
 
-# O ator localiza a OS pelo identificador gerado no cadastro, navegando entre as páginas, se necessário.
+# 3. O ator localiza a OS pelo identificador gerado no cadastro, navegando entre as páginas, se necessário.
 
-# O ator verifica que o registro corresponde à OS cadastrada.
+# 4. O ator verifica que o registro corresponde à OS cadastrada.
 
 
 # [A2] - EDITAR A ORDEM DE SERVIÇO
 # ---------------------------------------------------------------
 
-# O ator executa [A1] e seleciona a ação de edição da OS.
+# 1. O ator executa [A1] e seleciona a ação de edição da OS.
 
-# O sistema abre o formulário com os dados atuais preenchidos.
+# 2. O sistema abre o formulário com os dados atuais preenchidos.
 
-# O ator altera a descrição para:
+# 3. O ator altera a descrição para:
 # "Limpeza programada dos painéis do bloco B".
 
-# O ator altera o custo para R$ 180,00 e mantém
+# 4. O ator altera o custo para R$ 180,00 e mantém
 # o serviço, o prestador e as datas anteriores.
 
-# O ator seleciona "Salvar". [A4]
+# 5. O ator seleciona "Salvar". [A4]
 
-# O sistema valida os dados conforme [RN1] e [RN2]. [A5]
+# 6. O sistema valida os dados conforme [RN1] e [RN2]. [A5]
 
-# Após confirmar a gravação, o sistema apresenta: "Ordem de Serviço atualizada com sucesso!"
+# 7. Após confirmar a gravação, o sistema apresenta: "Ordem de Serviço atualizada com sucesso!"
 
-# O ator consulta novamente a OS.
+# 8. O ator consulta novamente a OS.
 
-# O sistema apresenta a nova descrição e o custo de R$ 180,00.
+# 9. O sistema apresenta a nova descrição e o custo de R$ 180,00.
 
-# O ator verifica que os campos não alterados foram preservados e que o identificador da OS permanece o mesmo.
+# 10. O ator verifica que os campos não alterados foram preservados e que o identificador da OS permanece o mesmo.
 
 
 # [A3] - REMOVER A ORDEM DE SERVIÇO
 # ---------------------------------------------------------------
 
-# O ator executa [A1] e seleciona a ação de remoção.
+# 1. O ator executa [A1] e seleciona a ação de remoção.
 
-# O sistema apresenta um modal de confirmação, identificando a OS e oferecendo "Confirmar" e "Cancelar". [A4]
+# 2. O sistema apresenta um modal de confirmação, identificando a OS e oferecendo "Confirmar" e "Cancelar". [A4]
 
-# O ator seleciona "Confirmar".
+# 3. O ator seleciona "Confirmar".
 
-# O sistema verifica os impedimentos da operação. [A6]
+# 4. O sistema verifica os impedimentos da operação. [A6]
 
-# Na ausência de impedimentos, o sistema marca a OS como removida, preservando seu registro no banco de dados.
+# 5. Na ausência de impedimentos, o sistema marca a OS como removida, preservando seu registro no banco de dados.
 
-# Após confirmar a gravação, o sistema apresenta: "Ordem de Serviço removida com sucesso!"
+# 6. Após confirmar a gravação, o sistema apresenta: "Ordem de Serviço removida com sucesso!"
 
-# O sistema atualiza a listagem.
+# 7. O sistema atualiza a listagem.
 
-# O ator verifica que a OS removida não aparece na consulta de registros disponíveis.
+# 8. O ator verifica que a OS removida não aparece na consulta de registros disponíveis.
 
 
 # [A4] - CANCELAR UMA OPERAÇÃO
 # ---------------------------------------------------------------
 
-# No cadastro, o ator seleciona "Cancelar" ou fecha
+# 1. No cadastro, o ator seleciona "Cancelar" ou fecha
 # o formulário antes do envio.
-# O sistema encerra o formulário sem cadastrar a OS.
 
-# Na edição, o ator seleciona "Cancelar" ou fecha
+# 2. O sistema encerra o formulário sem cadastrar a OS.
+
+# 3. Na edição, o ator seleciona "Cancelar" ou fecha
 # o formulário antes do envio.
-# O sistema mantém os dados anteriormente gravados.
 
-# Na remoção, o ator seleciona "Cancelar" ou fecha
+# 4. O sistema mantém os dados anteriormente gravados.
+
+# 5. Na remoção, o ator seleciona "Cancelar" ou fecha
 # o modal antes da confirmação.
-# O sistema mantém a OS disponível e sem remoção.
+
+# 6. O sistema mantém a OS disponível e sem remoção.
 
 
 # [A5] - INFORMAR DADOS INVÁLIDOS
 # ---------------------------------------------------------------
 
-# O ator tenta salvar o cadastro ou a edição com um campo obrigatório ausente, descrição insuficiente, custo inválido
+# 1. O ator tenta salvar o cadastro ou a edição com um campo obrigatório ausente, descrição insuficiente, custo inválido
 # ou datas inconsistentes.
 
-# O sistema rejeita a operação e informa o campo ou a regra que impediu a gravação.
+# 2. O sistema rejeita a operação e informa o campo ou a regra que impediu a gravação.
 
-# O sistema não apresenta mensagem de sucesso.
+# 3. O sistema não apresenta mensagem de sucesso.
 
-# O ator corrige os dados e solicita a gravação novamente.
+# 4. O ator corrige os dados e solicita a gravação novamente.
 
 
 # [A6] - REMOÇÃO IMPEDIDA POR CONTA VINCULADA
 # ---------------------------------------------------------------
 
-# Nesta variação, a OS possui uma conta vinculada que não está removida nem cancelada.
+# 1. Nesta variação, a OS possui uma conta vinculada que não está removida nem cancelada.
 
-# O ator solicita e confirma a remoção da OS.
+# 2. O ator solicita e confirma a remoção da OS.
 
-# O sistema bloqueia a remoção e informa o impedimento financeiro.
+# 3. O sistema bloqueia a remoção e informa o impedimento financeiro.
 
-# O ator consulta novamente a OS e verifica que ela permanece disponível e que seus dados foram preservados.
+# 4. O ator consulta novamente a OS e verifica que ela permanece disponível e que seus dados foram preservados.
 
 
 # [RN1] - PREENCHIMENTO E VALIDAÇÃO DOS CAMPOS

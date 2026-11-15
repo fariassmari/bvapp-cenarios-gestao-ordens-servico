@@ -1,27 +1,21 @@
 # Cenários de testes funcionais
 
-Este diretório reúne os cenários automatizados e documentais de teste do módulo de Gestão de Serviços.
-
-## Navegação
-
-- [README principal](../README.md)
-- [Requisitos funcionais](../requisitos_funcionais/README.md)
-- [Arquivo de requisitos completo](../requisitos_funcionais/requisitos-funcionais.md)
+Este diretório contém sete cenários documentais do módulo de Gestão de Serviços do BVapp. Os arquivos usam a extensão `.py`, mas descrevem fluxos e regras de negócio em vez de executar testes automatizados.
 
 ## Casos contemplados
 
-| Cenário | Descrição | Arquivo |
+| Caso de uso | Descrição | Arquivo |
 | --- | --- | --- |
-| UC001 | Manter ordem de serviço | [test_uc001_manter_ordem_servico.py](test_uc001_manter_ordem_servico.py) |
-| UC002 | Autorização CRUD | [test_uc002_autorizacao_crud.py](test_uc002_autorizacao_crud.py) |
-| UC003 | Cancelamentos CRUD | [test_uc003_cancelamentos_crud.py](test_uc003_cancelamentos_crud.py) |
-| UC004 | Consultar, filtrar e exportar | [test_uc004_consultar_filtrar_exportar.py](test_uc004_consultar_filtrar_exportar.py) |
-| UC005 | Detalhes da conta | [test_uc005_detalhes_conta.py](test_uc005_detalhes_conta.py) |
-| UC006 | Ativos associados | [test_uc006_ativos_associados.py](test_uc006_ativos_associados.py) |
-| UC007 | Confirmação de status | [test_uc007_confirmacao_status.py](test_uc007_confirmacao_status.py) |
-| UC008 | Exportação individual | [test_uc008_exportacao_individual.py](test_uc008_exportacao_individual.py) |
-| UC009 | Gestão rápida | [test_uc009_gestao_rapida.py](test_uc009_gestao_rapida.py) |
+| UC001 | Manter Ordem de Serviço | [test_uc001_manter_ordem_servico.py](test_uc001_manter_ordem_servico.py) |
+| UC002 | Consultar, filtrar e exportar Ordens de Serviço | [test_uc002_consultar_filtrar_exportar.py](test_uc002_consultar_filtrar_exportar.py) |
+| UC003 | Visualizar detalhes da OS e consultar a conta associada | [test_uc003_detalhes_conta.py](test_uc003_detalhes_conta.py) |
+| UC004 | Visualizar ativos associados à Ordem de Serviço | [test_uc004_ativos_associados.py](test_uc004_ativos_associados.py) |
+| UC005 | Confirmar ou cancelar a alteração de status da OS | [test_uc005_confirmacao_status.py](test_uc005_confirmacao_status.py) |
+| UC006 | Exportar o PDF individual de uma Ordem de Serviço | [test_uc006_exportacao_individual.py](test_uc006_exportacao_individual.py) |
+| UC007 | Consultar indicadores e acessar listagens pela Gestão rápida | [test_uc007_gestao_rapida.py](test_uc007_gestao_rapida.py) |
 
-## Observação
+## Como ler os cenários
 
-Os arquivos deste diretório representam a base documental dos cenários esperados para a aplicação, com foco em regras de negócio, pré-condições e validações de fluxo.
+Cada cenário apresenta contexto e pré-condições, seguidos por um fluxo principal `[FP]`, fluxos alternativos `[A1]`, `[A2]` etc. e regras de negócio `[RN1]`, `[RN2]` etc. A numeração dos passos recomeça em 1 em cada fluxo. As referências entre colchetes nos passos apontam para variações ou regras descritas no mesmo arquivo.
+
+Volte ao [README principal](../README.md) para a visão geral do repositório.

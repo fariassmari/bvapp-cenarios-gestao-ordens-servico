@@ -1,5 +1,5 @@
 '''
-UC006 - Visualizar ativos associados à Ordem de Serviço
+UC004 - Visualizar ativos associados à Ordem de Serviço
 
 Objetivo: Permitir que o usuário consulte os ativos vinculado ao serviço da OS, agrupados por tipo, com suas quantidades e informações individuais.
 
@@ -43,77 +43,77 @@ Dados planejados:
 # [FP] - FLUXO PRINCIPAL
 # ---------------------------------------------------------------
 
-# O ator localiza OS_REFERENCIA na listagem e seleciona a visualização.
+# 1. O ator localiza OS_REFERENCIA na listagem e seleciona a visualização.
 
-# O sistema abre o painel lateral na aba "Detalhes".
+# 2. O sistema abre o painel lateral na aba "Detalhes".
 
-# O ator verifica o identificador da OS e o serviço S01, confirmando que abriu o registro correto.
+# 3. O ator verifica o identificador da OS e o serviço S01, confirmando que abriu o registro correto.
 
-# O ator seleciona a aba "Ativos associados". [A1][A2][A3]
+# 4. O ator seleciona a aba "Ativos associados". [A1][A2][A3]
 
-# O sistema apresenta os ativos vinculados ao serviço S01, agrupados por tipo:
+# 5. O sistema apresenta os ativos vinculados ao serviço S01, agrupados por tipo:
 # - Painel: quantidade 2;
 # - Inversor: quantidade 1.
 
-# O ator expande o grupo Painel.
+# 6. O ator expande o grupo Painel.
 
-# O sistema apresenta A01 e A02, com seus números de série e os respectivos status.
+# 7. O sistema apresenta A01 e A02, com seus números de série e os respectivos status.
 
-# Para A01, o sistema apresenta a entrada em operação como 10/10/2026.
+# 8. Para A01, o sistema apresenta a entrada em operação como 10/10/2026.
 
-# Para A02, o sistema não apresenta uma data de entrada em operação que não esteja registrada. [RN2]
+# 9. Para A02, o sistema não apresenta uma data de entrada em operação que não esteja registrada. [RN2]
 
-# O ator recolhe o grupo Painel.
+# 10. O ator recolhe o grupo Painel.
 
-# O sistema oculta os itens desse grupo, mantendo disponíveis sua identificação e quantidade.
+# 11. O sistema oculta os itens desse grupo, mantendo disponíveis sua identificação e quantidade.
 
-# O ator expande o grupo Inversor.
+# 12. O ator expande o grupo Inversor.
 
-# O sistema apresenta A03, com número de série INVERSOR-001, status correspondente ao cadastro e entrada em operação em 15/10/2026.
+# 13. O sistema apresenta A03, com número de série INVERSOR-001, status correspondente ao cadastro e entrada em operação em 15/10/2026.
 
-# O ator verifica que os ativos de outros serviços não aparecem nos grupos apresentados. [RN1]
+# 14. O ator verifica que os ativos de outros serviços não aparecem nos grupos apresentados. [RN1]
 
-# O ator fecha o painel.
+# 15. O ator fecha o painel.
 
-# O sistema preserva a página, a busca, os filtros e a ordenação da listagem.
+# 16. O sistema preserva a página, a busca, os filtros e a ordenação da listagem.
 
 
 # [A1] - SERVIÇO SEM ATIVOS ASSOCIADOS
 # ---------------------------------------------------------------
 
-# O ator utiliza uma OS de preparação vinculada ao serviço S02, que não possui ativos associados.
+# 1. O ator utiliza uma OS de preparação vinculada ao serviço S02, que não possui ativos associados.
 
-# O ator abre a visualização e acessa "Ativos associados".
+# 2. O ator abre a visualização e acessa "Ativos associados".
 
-# O sistema informa: "Nenhum ativo associado."
+# 3. O sistema informa: "Nenhum ativo associado."
 
 
 # [A2] - USUÁRIO SEM PERMISSÃO PARA CONSULTAR ATIVOS
 # ---------------------------------------------------------------
 
-# O ator utiliza uma sessão com SERVICO_VISUALIZAR, mas sem ATIVO_VISUALIZAR.
+# 1. O ator utiliza uma sessão com SERVICO_VISUALIZAR, mas sem ATIVO_VISUALIZAR.
 
-# O ator abre os detalhes da OS e tenta acessar os ativos.
+# 2. O ator abre os detalhes da OS e tenta acessar os ativos.
 
-# O sistema bloqueia a consulta dos ativos associados.
+# 3. O sistema bloqueia a consulta dos ativos associados.
 
-# Em outra variação, o ator possui ATIVO_VISUALIZAR, mas não possui SERVICO_VISUALIZAR.
+# 4. Em outra variação, o ator possui ATIVO_VISUALIZAR, mas não possui SERVICO_VISUALIZAR.
 
-# O sistema também bloqueia a consulta dos ativos dessa OS.
+# 5. O sistema também bloqueia a consulta dos ativos dessa OS.
 
-# As duas permissões são necessárias simultaneamente. [RN3]
+# 6. As duas permissões são necessárias simultaneamente. [RN3]
 
 
 # [A3] - CARREGAMENTO E FALHA NA CONSULTA
 # ---------------------------------------------------------------
 
-# O ator acessa "Ativos associados".
+# 1. O ator acessa "Ativos associados".
 
-# Enquanto os dados estiverem sendo consultados, o sistema apresenta uma indicação de carregamento.
+# 2. Enquanto os dados estiverem sendo consultados, o sistema apresenta uma indicação de carregamento.
 
-# Caso a consulta falhe, o sistema informa que não foi possível carregar os dados.
+# 3. Caso a consulta falhe, o sistema informa que não foi possível carregar os dados.
 
-# O sistema não apresenta "Nenhum ativo associado." como resposta a uma falha de carregamento.
+# 4. O sistema não apresenta "Nenhum ativo associado." como resposta a uma falha de carregamento.
 
 
 # [RN1] - ORIGEM E AGRUPAMENTO DOS ATIVOS

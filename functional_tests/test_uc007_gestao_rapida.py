@@ -1,5 +1,5 @@
 '''
-UC010 - Consultar indicadores e acessar listagens pela Gestão rápida
+UC007 - Consultar indicadores e acessar listagens pela Gestão rápida
 
 Objetivo: Permitir que o usuário consulte as quantidades de OS por status e, ao selecionar "Ver listagem", seja direcionado
 à página específica do status escolhido.
@@ -38,83 +38,83 @@ Dados planejados:
 # [FP] - FLUXO PRINCIPAL
 # ---------------------------------------------------------------
 
-# O ator acessa a Gestão de Ordens de Serviço.
+# 1. O ator acessa a Gestão de Ordens de Serviço.
 
-# O sistema apresenta quatro cards acima da listagem:
+# 2. O sistema apresenta quatro cards acima da listagem:
 # - Abertas: 11;
 # - Em andamento: 11;
 # - Concluídas: 11;
 # - Atrasadas: 11.
 
-# O ator aplica um filtro na listagem geral.
+# 3. O ator aplica um filtro na listagem geral.
 
-# As quantidades dos cards permanecem gerais, sem serem limitadas pelo filtro ou pela página da listagem.
+# 4. As quantidades dos cards permanecem gerais, sem serem limitadas pelo filtro ou pela página da listagem.
 
-# O ator seleciona "Ver listagem" no card Abertas.
+# 5. O ator seleciona "Ver listagem" no card Abertas.
 
-# O sistema direciona o ator à página específica de OS Abertas.
+# 6. O sistema direciona o ator à página específica de OS Abertas.
 
-# A página apresenta um título que identifica as OS Abertas e somente registros não removidos com status "Aberta".
+# 7. A página apresenta um título que identifica as OS Abertas e somente registros não removidos com status "Aberta".
 
-# O ator retorna aos indicadores e seleciona "Ver listagem" no card Em andamento.
+# 8. O ator retorna aos indicadores e seleciona "Ver listagem" no card Em andamento.
 
-# O sistema direciona o ator à página específica de OS Em andamento.
+# 9. O sistema direciona o ator à página específica de OS Em andamento.
 
-# O ator confere o título e verifica que os registros apresentados são não removidos e possuem status "Em andamento".
+# 10. O ator confere o título e verifica que os registros apresentados são não removidos e possuem status "Em andamento".
 
-# O ator retorna aos indicadores e seleciona "Ver listagem" no card Concluídas.
+# 11. O ator retorna aos indicadores e seleciona "Ver listagem" no card Concluídas.
 
-# O sistema direciona o ator à página específica de OS Concluídas.
+# 12. O sistema direciona o ator à página específica de OS Concluídas.
 
-# O ator confere o título e verifica que os registros apresentados são não removidos e possuem status "Concluída".
+# 13. O ator confere o título e verifica que os registros apresentados são não removidos e possuem status "Concluída".
 
-# O ator retorna aos indicadores e seleciona "Ver listagem" no card Atrasadas.
+# 14. O ator retorna aos indicadores e seleciona "Ver listagem" no card Atrasadas.
 
-# O sistema direciona o ator à página específica de OS Atrasadas.
+# 15. O sistema direciona o ator à página específica de OS Atrasadas.
 
-# O ator confere o título e verifica que os registros apresentados são não removidos e possuem status "Atrasada".
+# 16. O ator confere o título e verifica que os registros apresentados são não removidos e possuem status "Atrasada".
 
 
 # [A1] - STATUS SEM REGISTROS
 # ---------------------------------------------------------------
 
-# O ator utiliza uma preparação em que um dos status não possui OS não removidas.
+# 1. O ator utiliza uma preparação em que um dos status não possui OS não removidas.
 
-# O sistema apresenta zero no card correspondente e mantém a ação "Ver listagem" disponível.
+# 2. O sistema apresenta zero no card correspondente e mantém a ação "Ver listagem" disponível.
 
-# O ator acessa essa listagem.
+# 3. O ator acessa essa listagem.
 
-# O sistema informa: "Nenhuma Ordem de Serviço encontrada"
+# 4. O sistema informa: "Nenhuma Ordem de Serviço encontrada"
 
 
 # [A2] - CARREGAMENTO E FALHA NOS INDICADORES
 # ---------------------------------------------------------------
 
-# Durante a consulta dos indicadores, o sistema apresenta uma indicação de carregamento.
+# 1. Durante a consulta dos indicadores, o sistema apresenta uma indicação de carregamento.
 
-# Se ocorrer uma falha, o sistema informa que não foi possível carregar os indicadores.
+# 2. Se ocorrer uma falha, o sistema informa que não foi possível carregar os indicadores.
 
-# O sistema não apresenta zero como se fosse uma contagem confirmada de registros.
+# 3. O sistema não apresenta zero como se fosse uma contagem confirmada de registros.
 
 
 # [A3] - CARREGAMENTO E FALHA NAS LISTAGENS
 # ---------------------------------------------------------------
 
-# Durante a consulta de uma listagem por status, o sistema apresenta uma indicação de carregamento.
+# 1. Durante a consulta de uma listagem por status, o sistema apresenta uma indicação de carregamento.
 
-# Se ocorrer uma falha, o sistema informa que não foi possível carregar os registros.
+# 2. Se ocorrer uma falha, o sistema informa que não foi possível carregar os registros.
 
-# O sistema diferencia a falha da ausência de resultados.
+# 3. O sistema diferencia a falha da ausência de resultados.
 
 
 # [A4] - USUÁRIO SEM AUTORIZAÇÃO
 # ---------------------------------------------------------------
 
-# O ator utiliza uma sessão sem SERVICO_LISTAR e tenta consultar os indicadores ou as listagens por status.
+# 1. O ator utiliza uma sessão sem SERVICO_LISTAR e tenta consultar os indicadores ou as listagens por status.
 
-# O sistema bloqueia essas consultas.
+# 2. O sistema bloqueia essas consultas.
 
-# O mesmo bloqueio deve ocorrer sem autenticação.
+# 3. O mesmo bloqueio deve ocorrer sem autenticação.
 
 
 # [RN1] - CONTAGEM DOS INDICADORES

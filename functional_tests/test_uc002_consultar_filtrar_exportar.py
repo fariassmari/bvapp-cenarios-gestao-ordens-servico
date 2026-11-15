@@ -1,5 +1,5 @@
 '''
-UC004 - Consultar, filtrar e exportar Ordens de Serviço
+UC002 - Consultar, filtrar e exportar Ordens de Serviço
 
 Objetivo:
 Permitir que o usuário pesquise, filtre, ordene e navegue pelas Ordens de Serviço e exporte em PDF ou CSV todos os registros da consulta, apresentando somente os que atendam às condições aplicadas.
@@ -56,23 +56,23 @@ Essas quantidades são dados de teste, não limites da funcionalidade.
 # [FP] - FLUXO PRINCIPAL
 # ---------------------------------------------------------------
 
-# O ator acessa a listagem de Ordens de Serviço.
+# 1. O ator acessa a listagem de Ordens de Serviço.
 
-# O sistema apresenta os registros disponíveis e o campo de pesquisa.
+# 2. O sistema apresenta os registros disponíveis e o campo de pesquisa.
 
-# O ator informa o identificador conhecido de OS_REFERENCIA no campo de pesquisa.
+# 3. O ator informa o identificador conhecido de OS_REFERENCIA no campo de pesquisa.
 
-# O sistema atualiza a listagem, apresentando os registros que correspondem ao termo informado. [A1]
+# 4. O sistema atualiza a listagem, apresentando os registros que correspondem ao termo informado. [A1]
 
-# O ator verifica que OS_REFERENCIA está no resultado.
+# 5. O ator verifica que OS_REFERENCIA está no resultado.
 
-# O ator limpa o campo de pesquisa.
+# 6. O ator limpa o campo de pesquisa.
 
-# O sistema remove a condição textual e apresenta a primeira página dos resultados correspondentes.
+# 7. O sistema remove a condição textual e apresenta a primeira página dos resultados correspondentes.
 
-# O ator seleciona "Filtrar".
+# 8. O ator seleciona "Filtrar".
 
-# O sistema apresenta o painel com os filtros:
+# 9. O sistema apresenta o painel com os filtros:
 # - Status;
 # - Serviço;
 # - Prestador;
@@ -80,65 +80,65 @@ Essas quantidades são dados de teste, não limites da funcionalidade.
 # - Data de abertura inicial e final;
 # - Data prevista de conclusão inicial e final.
 
-# O ator preenche os filtros com os dados planejados e seleciona "Aplicar filtros". [A2][A3]
+# 10. O ator preenche os filtros com os dados planejados e seleciona "Aplicar filtros". [A2][A3]
 
-# O sistema valida os períodos e combina os filtros conforme [RN1] e [RN2].
+# 11. O sistema valida os períodos e combina os filtros conforme [RN1] e [RN2].
 
-# O sistema apresenta a primeira página da consulta, contendo somente as OS que atendem a todos os filtros.
+# 12. O sistema apresenta a primeira página da consulta, contendo somente as OS que atendem a todos os filtros.
 
-# O ator verifica que o total da consulta é 12 e que OS_REFERENCIA pertence ao conjunto retornado.
+# 13. O ator verifica que o total da consulta é 12 e que OS_REFERENCIA pertence ao conjunto retornado.
 
-# O ator verifica que as OS que não atendem aos filtros não pertencem ao resultado.
+# 14. O ator verifica que as OS que não atendem aos filtros não pertencem ao resultado.
 
-# O ator utiliza os cabeçalhos "ID" e "Prevista" para ordenar os registros. [A4]
+# 15. O ator utiliza os cabeçalhos "ID" e "Prevista" para ordenar os registros. [A4]
 
-# O sistema aplica a ordenação antes da paginação e indica a coluna e o sentido utilizados.
+# 16. O sistema aplica a ordenação antes da paginação e indica a coluna e o sentido utilizados.
 
-# O ator navega para a segunda página. [A5]
+# 17. O ator navega para a segunda página. [A5]
 
-# O sistema apresenta os registros correspondentes, mantendo os filtros e a ordenação.
+# 18. O sistema apresenta os registros correspondentes, mantendo os filtros e a ordenação.
 
-# O ator altera a quantidade de registros por página para 20.
+# 19. O ator altera a quantidade de registros por página para 20.
 
-# O sistema retorna à primeira página, preservando os filtros e a ordenação, e apresenta os 12 registros da consulta.
+# 20. O sistema retorna à primeira página, preservando os filtros e a ordenação, e apresenta os 12 registros da consulta.
 
-# O ator informa novamente o identificador completo de OS_REFERENCIA no campo de pesquisa.
+# 21. O ator informa novamente o identificador completo de OS_REFERENCIA no campo de pesquisa.
 
-# O sistema combina a pesquisa com os filtros existentes e apresenta a OS correspondente.
+# 22. O sistema combina a pesquisa com os filtros existentes e apresenta a OS correspondente.
 
-# O ator seleciona "Limpar" no painel de filtros. [A6]
+# 23. O ator seleciona "Limpar" no painel de filtros. [A6]
 
-# O sistema remove as restrições do painel, mantendo o termo pesquisado, a ordenação e a quantidade de registros por página.
+# 24. O sistema remove as restrições do painel, mantendo o termo pesquisado, a ordenação e a quantidade de registros por página.
 
-# O ator verifica que a pesquisa pelo identificador continua aplicada.
+# 25. O ator verifica que a pesquisa pelo identificador continua aplicada.
 
-# O ator limpa o campo de pesquisa.
+# 26. O ator limpa o campo de pesquisa.
 
-# O sistema remove a condição textual e apresenta a primeira página da consulta sem os filtros anteriores.
+# 27. O sistema remove a condição textual e apresenta a primeira página da consulta sem os filtros anteriores.
 
-# O ator aplica novamente os filtros planejados, com 10 registros por página.
+# 28. O ator aplica novamente os filtros planejados, com 10 registros por página.
 
-# O sistema apresenta 12 registros correspondentes, distribuídos em duas páginas.
+# 29. O sistema apresenta 12 registros correspondentes, distribuídos em duas páginas.
 
-# O ator confere os identificadores esperados nas duas páginas e retorna à primeira página.
+# 30. O ator confere os identificadores esperados nas duas páginas e retorna à primeira página.
 
-# O ator seleciona "Exportar". [A7][A10]
+# 31. O ator seleciona "Exportar". [A7][A10]
 
-# O sistema solicita a seleção do formato.
+# 32. O sistema solicita a seleção do formato.
 
-# O ator seleciona PDF e confirma a exportação. [A8]
+# 33. O ator seleciona PDF e confirma a exportação. [A8]
 
-# O sistema apresenta um modal de carregamento durante a geração. [A9]
+# 34. O sistema apresenta um modal de carregamento durante a geração. [A9]
 
-# Ao concluir, o sistema encerra o carregamento, disponibiliza o arquivo para download e apresenta: "Arquivo gerado com sucesso!"
+# 35. Ao concluir, o sistema encerra o carregamento, disponibiliza o arquivo para download e apresenta: "Arquivo gerado com sucesso!"
 
-# O ator confere que o PDF contém os 12 registros da consulta, incluindo os que estavam na segunda página.
+# 36. O ator confere que o PDF contém os 12 registros da consulta, incluindo os que estavam na segunda página.
 
-# O ator verifica que a OS de controle fora dos filtros não aparece no arquivo.
+# 37. O ator verifica que a OS de controle fora dos filtros não aparece no arquivo.
 
-# O ator verifica que a OS removida também não aparece no arquivo.
+# 38. O ator verifica que a OS removida também não aparece no arquivo.
 
-# Para cada registro, o ator confere:
+# 39. Para cada registro, o ator confere:
 # - Identificador da OS;
 # - Nome do serviço vinculado;
 # - Prestador;
@@ -148,165 +148,165 @@ Essas quantidades são dados de teste, não limites da funcionalidade.
 # - Custo;
 # - Status.
 
-# O ator verifica o nome do arquivo no padrão: ordens_servico_AAAAMMDD_HHmmss.pdf. [P1]
+# 40. O ator verifica o nome do arquivo no padrão: ordens_servico_AAAAMMDD_HHmmss.pdf. [P1]
 
-# O ator repete a exportação selecionando CSV.
+# 41. O ator repete a exportação selecionando CSV.
 
-# O sistema apresenta o carregamento e, ao concluir, disponibiliza o arquivo e informa o sucesso.
+# 42. O sistema apresenta o carregamento e, ao concluir, disponibiliza o arquivo e informa o sucesso.
 
-# O ator confere os mesmos 12 registros e os campos exigidos, acrescentando:
+# 43. O ator confere os mesmos 12 registros e os campos exigidos, acrescentando:
 # - Descrição da OS;
 # - Nome do solicitante.
 
-# O ator verifica o nome do arquivo no padrão: ordens_servico_AAAAMMDD_HHmmss.csv. [P1]
+# 44. O ator verifica o nome do arquivo no padrão: ordens_servico_AAAAMMDD_HHmmss.csv. [P1]
 
 
 # [A1] - PESQUISA SEM CORRESPONDÊNCIA
 # ---------------------------------------------------------------
 
-# O ator informa um termo que não corresponde a nenhuma OS da massa de teste.
+# 1. O ator informa um termo que não corresponde a nenhuma OS da massa de teste.
 
-# O sistema aplica a pesquisa junto dos filtros vigentes.
+# 2. O sistema aplica a pesquisa junto dos filtros vigentes.
 
-# Como não existem registros correspondentes, o sistema apresenta: "Nenhuma Ordem de Serviço encontrada."
+# 3. Como não existem registros correspondentes, o sistema apresenta: "Nenhuma Ordem de Serviço encontrada."
 
-# O ator limpa o campo de pesquisa.
+# 4. O ator limpa o campo de pesquisa.
 
-# O sistema remove somente a condição textual, mantendo os filtros e a ordenação selecionados.
+# 5. O sistema remove somente a condição textual, mantendo os filtros e a ordenação selecionados.
 
 
 # [A2] - INFORMAR SOMENTE UM LIMITE DO PERÍODO
 # ---------------------------------------------------------------
 
-# O ator acessa o painel de filtros e informa somente a data inicial de um período.
+# 1. O ator acessa o painel de filtros e informa somente a data inicial de um período.
 
-# O ator seleciona "Aplicar filtros".
+# 2. O ator seleciona "Aplicar filtros".
 
-# O sistema apresenta registros com a data correspondente maior ou igual à data inicial informada.
+# 3. O sistema apresenta registros com a data correspondente maior ou igual à data inicial informada.
 
-# O ator limpa esse período e informa somente a data final.
+# 4. O ator limpa esse período e informa somente a data final.
 
-# O ator seleciona "Aplicar filtros".
+# 5. O ator seleciona "Aplicar filtros".
 
-# O sistema apresenta registros com a data correspondente menor ou igual à data final informada.
+# 6. O sistema apresenta registros com a data correspondente menor ou igual à data final informada.
 
-# Os demais filtros preenchidos continuam compondo a consulta.
+# 7. Os demais filtros preenchidos continuam compondo a consulta.
 
 
 # [A3] - INFORMAR UM PERÍODO INVÁLIDO
 # ---------------------------------------------------------------
 
-# O ator informa uma data inicial posterior à data final no período de abertura ou de previsão.
+# 1. O ator informa uma data inicial posterior à data final no período de abertura ou de previsão.
 
-# O ator seleciona "Aplicar filtros".
+# 2. O ator seleciona "Aplicar filtros".
 
-# O sistema impede a aplicação do intervalo inválido e apresenta: "A data inicial não pode ser posterior à data final."
+# 3. O sistema impede a aplicação do intervalo inválido e apresenta: "A data inicial não pode ser posterior à data final."
 
-# O ator corrige as datas e solicita a aplicação novamente.
+# 4. O ator corrige as datas e solicita a aplicação novamente.
 
-# O sistema valida o período e atualiza a consulta.
+# 5. O sistema valida o período e atualiza a consulta.
 
 
 # [A4] - ALTERNAR A ORDENAÇÃO
 # ---------------------------------------------------------------
 
-# O ator seleciona o cabeçalho "ID".
+# 1. O ator seleciona o cabeçalho "ID".
 
-# O sistema ordena os resultados pelo identificador da OS e indica o sentido utilizado.
+# 2. O sistema ordena os resultados pelo identificador da OS e indica o sentido utilizado.
 
-# O ator seleciona novamente o mesmo cabeçalho.
+# 3. O ator seleciona novamente o mesmo cabeçalho.
 
-# O sistema alterna o sentido da ordenação.
+# 4. O sistema alterna o sentido da ordenação.
 
-# O ator repete a operação no cabeçalho "Prevista".
+# 5. O ator repete a operação no cabeçalho "Prevista".
 
-# O sistema ordena pela Data prevista de conclusão, alternando o sentido ao repetir o clique.
+# 6. O sistema ordena pela Data prevista de conclusão, alternando o sentido ao repetir o clique.
 
-# A busca e os filtros continuam aplicados.
+# 7. A busca e os filtros continuam aplicados.
 
-# O ator compara o conjunto completo de resultados, verificando que a ordenação não foi aplicada apenas aos registros da página visível.
+# 8. O ator compara o conjunto completo de resultados, verificando que a ordenação não foi aplicada apenas aos registros da página visível.
 
 
 # [A5] - NAVEGAR ENTRE AS PÁGINAS
 # ---------------------------------------------------------------
 
-# Com 12 registros correspondentes e 10 por página, o ator acessa a segunda página.
+# 1. Com 12 registros correspondentes e 10 por página, o ator acessa a segunda página.
 
-# O sistema apresenta os dois registros restantes, mantendo a busca, os filtros e a ordenação.
+# 2. O sistema apresenta os dois registros restantes, mantendo a busca, os filtros e a ordenação.
 
-# O ator retorna à primeira página.
+# 3. O ator retorna à primeira página.
 
-# O sistema apresenta os registros correspondentes à primeira página da mesma consulta.
+# 4. O sistema apresenta os registros correspondentes à primeira página da mesma consulta.
 
-# O ator aplica ou remove uma busca ou um filtro.
+# 5. O ator aplica ou remove uma busca ou um filtro.
 
-# O sistema retorna à primeira página dos resultados.
+# 6. O sistema retorna à primeira página dos resultados.
 
 
 # [A6] - LIMPAR OS FILTROS DO PAINEL
 # ---------------------------------------------------------------
 
-# O ator mantém um termo de pesquisa aplicado e acessa o painel de filtros.
+# 1. O ator mantém um termo de pesquisa aplicado e acessa o painel de filtros.
 
-# O ator seleciona "Limpar".
+# 2. O ator seleciona "Limpar".
 
-# O sistema retorna os seletores à opção "Todos", esvazia os campos de período e remove as restrições desses filtros.
+# 3. O sistema retorna os seletores à opção "Todos", esvazia os campos de período e remove as restrições desses filtros.
 
-# O sistema mantém o termo de pesquisa, a ordenação e a quantidade de registros por página.
+# 4. O sistema mantém o termo de pesquisa, a ordenação e a quantidade de registros por página.
 
-# O sistema apresenta a primeira página dos resultados correspondentes à pesquisa que permaneceu aplicada.
+# 5. O sistema apresenta a primeira página dos resultados correspondentes à pesquisa que permaneceu aplicada.
 
 
 # [A7] - CONSULTAR OU EXPORTAR SEM AUTORIZAÇÃO
 # ---------------------------------------------------------------
 
-# Um usuário não autenticado ou sem SERVICO_LISTAR tenta solicitar a consulta ou a exportação de Ordens de Serviço.
+# 1. Um usuário não autenticado ou sem SERVICO_LISTAR tenta solicitar a consulta ou a exportação de Ordens de Serviço.
 
-# O sistema bloqueia a operação e não apresenta nem gera os dados solicitados.
+# 2. O sistema bloqueia a operação e não apresenta nem gera os dados solicitados.
 
 
 # [A8] - FORMATO NÃO SUPORTADO
 # ---------------------------------------------------------------
 
-# É considerada uma solicitação de exportação em formato diferente de PDF ou CSV.
+# 1. É considerada uma solicitação de exportação em formato diferente de PDF ou CSV.
 
-# O sistema rejeita a solicitação e informa que o formato não é suportado.
+# 2. O sistema rejeita a solicitação e informa que o formato não é suportado.
 
-# O sistema não disponibiliza um arquivo como se a operação tivesse sido concluída com sucesso.
+# 3. O sistema não disponibiliza um arquivo como se a operação tivesse sido concluída com sucesso.
 
 
 # [A9] - FALHA NA GERAÇÃO DO ARQUIVO
 # ---------------------------------------------------------------
 
-# O ator solicita uma exportação válida.
+# 1. O ator solicita uma exportação válida.
 
-# Durante a geração, ocorre uma falha.
+# 2. Durante a geração, ocorre uma falha.
 
-# O sistema encerra o carregamento e informa a falha.
+# 3. O sistema encerra o carregamento e informa a falha.
 
-# O sistema não disponibiliza arquivo inválido nem apresenta a mensagem de sucesso.
+# 4. O sistema não disponibiliza arquivo inválido nem apresenta a mensagem de sucesso.
 
 
 # [A10] - EXPORTAR CONSULTA SEM RESULTADOS
 # ---------------------------------------------------------------
 
-# O ator aplica filtros que não correspondem a nenhuma OS.
+# 1. O ator aplica filtros que não correspondem a nenhuma OS.
 
-# O ator solicita a exportação.
+# 2. O ator solicita a exportação.
 
-# O sistema informa: "Não há dados disponíveis para exportação"
+# 3. O sistema informa: "Não há dados disponíveis para exportação"
 
-# O sistema encerra o carregamento e não gera o arquivo.
+# 4. O sistema encerra o carregamento e não gera o arquivo.
 
 
 # [A11] - FALHA AO CARREGAR A CONSULTA
 # ---------------------------------------------------------------
 
-# O ator solicita a consulta com uma sessão autorizada, mas ocorre uma falha no carregamento dos dados.
+# 1. O ator solicita a consulta com uma sessão autorizada, mas ocorre uma falha no carregamento dos dados.
 
-# O sistema informa que não foi possível carregar a consulta.
+# 2. O sistema informa que não foi possível carregar a consulta.
 
-# O sistema distingue essa falha da ausência de resultados, sem apresentá-la como uma consulta válida sem registros.
+# 3. O sistema distingue essa falha da ausência de resultados, sem apresentá-la como uma consulta válida sem registros.
 
 
 # [RN1] - COMBINAÇÃO DAS CONDIÇÕES

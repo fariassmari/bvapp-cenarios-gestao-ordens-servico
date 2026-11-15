@@ -1,5 +1,5 @@
 '''
-UC007 - Confirmar ou cancelar a alteração de status da OS
+UC005 - Confirmar ou cancelar a alteração de status da OS
 
 Objetivo: Permitir que o usuário altere o status de uma Ordem de Serviço mediante confirmação, respeitando as permissões
 e as transições especificadas.
@@ -40,81 +40,81 @@ Dados planejados:
 # [FP] - FLUXO PRINCIPAL
 # ---------------------------------------------------------------
 
-# O ator acessa a listagem e localiza OS_REFERENCIA pelo identificador conhecido.
+# 1. O ator acessa a listagem e localiza OS_REFERENCIA pelo identificador conhecido.
 
-# O ator consulta os detalhes e confere os dados planejados e o status atual "Aberta".
+# 2. O ator consulta os detalhes e confere os dados planejados e o status atual "Aberta".
 
-# Na listagem, o ator seleciona "Em andamento" no controle de status de OS_REFERENCIA.
+# 3. Na listagem, o ator seleciona "Em andamento" no controle de status de OS_REFERENCIA.
 
-# O sistema apresenta um modal identificando o status de destino, com as ações "Confirmar" e "Cancelar".
+# 4. O sistema apresenta um modal identificando o status de destino, com as ações "Confirmar" e "Cancelar".
 
-# O ator seleciona "Cancelar". [A1]
+# 5. O ator seleciona "Cancelar". [A1]
 
-# O sistema fecha o modal, mantém o status "Aberta" e reapresenta esse valor no seletor.
+# 6. O sistema fecha o modal, mantém o status "Aberta" e reapresenta esse valor no seletor.
 
-# O ator seleciona novamente "Em andamento".
+# 7. O ator seleciona novamente "Em andamento".
 
-# O sistema apresenta o modal de confirmação.
+# 8. O sistema apresenta o modal de confirmação.
 
-# O ator confere o destino e seleciona "Confirmar".
+# 9. O ator confere o destino e seleciona "Confirmar".
 
-# O sistema valida a transição e grava o status "Em andamento".
+# 10. O sistema valida a transição e grava o status "Em andamento".
 
-# Após confirmar a gravação, o sistema apresenta: "Status da ordem de serviço atualizado com sucesso!"
+# 11. Após confirmar a gravação, o sistema apresenta: "Status da ordem de serviço atualizado com sucesso!"
 
-# O sistema atualiza o status na listagem, na visualização detalhada quando aberta e nos indicadores afetados,
+# 12. O sistema atualiza o status na listagem, na visualização detalhada quando aberta e nos indicadores afetados,
 # sem exigir recarregamento manual.
 
-# O ator consulta OS_REFERENCIA e verifica o status "Em andamento".
+# 13. O ator consulta OS_REFERENCIA e verifica o status "Em andamento".
 
 
 # [A1] - FECHAR O MODAL SEM CONFIRMAR
 # ---------------------------------------------------------------
 
-# O ator seleciona um status diferente do atual.
+# 1. O ator seleciona um status diferente do atual.
 
-# O sistema apresenta o modal de confirmação.
+# 2. O sistema apresenta o modal de confirmação.
 
-# O ator fecha o modal antes de confirmar.
+# 3. O ator fecha o modal antes de confirmar.
 
-# O sistema mantém o status anteriormente gravado e reapresenta esse valor no seletor.
+# 4. O sistema mantém o status anteriormente gravado e reapresenta esse valor no seletor.
 
 
 # [A2] - USUÁRIO SEM AUTORIZAÇÃO
 # ---------------------------------------------------------------
 
-# O ator utiliza uma sessão sem SERVICO_EDITAR e tenta alterar o status da OS.
+# 1. O ator utiliza uma sessão sem SERVICO_EDITAR e tenta alterar o status da OS.
 
-# O sistema bloqueia a alteração e preserva o status gravado.
+# 2. O sistema bloqueia a alteração e preserva o status gravado.
 
-# O mesmo bloqueio deve ocorrer em uma solicitação sem autenticação.
+# 3. O mesmo bloqueio deve ocorrer em uma solicitação sem autenticação.
 
 
 # [A3] - CONFERIR AS DEMAIS TRANSIÇÕES DOCUMENTADAS
 # ---------------------------------------------------------------
 
-# Para cada variação, o ator utiliza uma OS independente, preparada no status de origem indicado.
+# 1. Para cada variação, o ator utiliza uma OS independente, preparada no status de origem indicado.
 
-# O ator solicita e confirma as seguintes transições:
+# 2. O ator solicita e confirma as seguintes transições:
 # - Em andamento para Concluída;
 # - Em andamento para Atrasada;
 # - Aberta para Cancelada.
 
-# O sistema valida cada transição conforme a matriz documentada, grava a alteração e atualiza as informações apresentadas.
+# 3. O sistema valida cada transição conforme a matriz documentada, grava a alteração e atualiza as informações apresentadas.
 
-# Os efeitos dessas alterações sobre as datas da OS dependem do esclarecimento registrado em P1.
+# 4. Os efeitos dessas alterações sobre as datas da OS dependem do esclarecimento registrado em P1.
 
 
 # [A4] - TENTAR SAIR DE UM STATUS FINAL
 # ---------------------------------------------------------------
 
-# O ator utiliza uma OS com status "Concluída" e tenta alterá-lo para outro status.
+# 1. O ator utiliza uma OS com status "Concluída" e tenta alterá-lo para outro status.
 
-# O sistema bloqueia a transição e mantém "Concluída".
+# 2. O sistema bloqueia a transição e mantém "Concluída".
 
-# O ator repete a tentativa em uma OS com status "Cancelada".
+# 3. O ator repete a tentativa em uma OS com status "Cancelada".
 
-# O sistema bloqueia a transição e mantém "Cancelada".
+# 4. O sistema bloqueia a transição e mantém "Cancelada".
 
 
 # [RN1] - CONFIRMAÇÃO DA ALTERAÇÃO

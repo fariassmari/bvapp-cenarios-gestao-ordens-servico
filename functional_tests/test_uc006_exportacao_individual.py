@@ -1,5 +1,5 @@
 '''
-UC009 - Exportar o PDF individual de uma Ordem de Serviço
+UC006 - Exportar o PDF individual de uma Ordem de Serviço
 
 Objetivo: Permitir que o usuário exporte a OS selecionada, respeitando as permissões para os dados de ativos e da conta.
 
@@ -42,17 +42,17 @@ Dados planejados:
 # [FP] - FLUXO PRINCIPAL
 # ---------------------------------------------------------------
 
-# O ator localiza OS_REFERENCIA na listagem e abre sua visualização.
+# 1. O ator localiza OS_REFERENCIA na listagem e abre sua visualização.
 
-# O ator confere o identificador para assegurar que selecionou a OS correta.
+# 2. O ator confere o identificador para assegurar que selecionou a OS correta.
 
-# O ator aciona a exportação individual em PDF.
+# 3. O ator aciona a exportação individual em PDF.
 
-# O sistema abre um modal de carregamento e mantém essa indicação durante a geração.
+# 4. O sistema abre um modal de carregamento e mantém essa indicação durante a geração.
 
-# Ao concluir, o sistema encerra o carregamento, disponibiliza o PDF para download e apresenta: "Arquivo gerado com sucesso!"
+# 5. Ao concluir, o sistema encerra o carregamento, disponibiliza o PDF para download e apresenta: "Arquivo gerado com sucesso!"
 
-# O ator confere que o PDF contém os dados de OS_REFERENCIA:
+# 6. O ator confere que o PDF contém os dados de OS_REFERENCIA:
 # - Identificador;
 # - Status;
 # - Nome do serviço;
@@ -64,64 +64,64 @@ Dados planejados:
 # - Data prevista de conclusão;
 # - Data de conclusão, quando informada.
 
-# O ator verifica que os dados da outra OS de preparação não foram utilizados no lugar dos dados de OS_REFERENCIA.
+# 7. O ator verifica que os dados da outra OS de preparação não foram utilizados no lugar dos dados de OS_REFERENCIA.
 
-# Como possui ATIVO_VISUALIZAR, o ator confere os ativos não removidos atualmente vinculados ao serviço S01:
+# 8. Como possui ATIVO_VISUALIZAR, o ator confere os ativos não removidos atualmente vinculados ao serviço S01:
 # - Tipo;
 # - Número de série;
 # - Status;
 # - Data de entrada em operação, quando informada. [A2]
 
-# Como possui CONTA_VISUALIZAR e OS_REFERENCIA não possui conta, o ator verifica a indicação:
+# 9. Como possui CONTA_VISUALIZAR e OS_REFERENCIA não possui conta, o ator verifica a indicação:
 # "Nenhuma conta associada". [A3][A4]
 
-# O ator confere que o nome do arquivo identifica a OS e contém a data e a hora da geração. [P1]
+# 10. O ator confere que o nome do arquivo identifica a OS e contém a data e a hora da geração. [P1]
 
 
 # [A1] - USUÁRIO SEM AUTORIZAÇÃO PARA EXPORTAR
 # ---------------------------------------------------------------
 
-# O ator utiliza uma sessão sem SERVICO_VISUALIZAR e solicita o PDF individual.
+# 1. O ator utiliza uma sessão sem SERVICO_VISUALIZAR e solicita o PDF individual.
 
-# O sistema bloqueia a exportação.
+# 2. O sistema bloqueia a exportação.
 
-# O mesmo bloqueio deve ocorrer quando não houver autenticação.
+# 3. O mesmo bloqueio deve ocorrer quando não houver autenticação.
 
 
 # [A2] - PERMISSÃO E AUSÊNCIA DE ATIVOS
 # ---------------------------------------------------------------
 
-# O ator utiliza uma sessão com SERVICO_VISUALIZAR, mas sem ATIVO_VISUALIZAR.
+# 1. O ator utiliza uma sessão com SERVICO_VISUALIZAR, mas sem ATIVO_VISUALIZAR.
 
-# O ator solicita o PDF individual.
+# 2. O ator solicita o PDF individual.
 
-# O sistema não inclui informações dos ativos no arquivo.
+# 3. O sistema não inclui informações dos ativos no arquivo.
 
-# Em outra variação, o ator possui ATIVO_VISUALIZAR, mas o serviço da OS não possui ativos associados.
+# 4. Em outra variação, o ator possui ATIVO_VISUALIZAR, mas o serviço da OS não possui ativos associados.
 
-# O PDF apresenta: "Nenhum ativo associado"
+# 5. O PDF apresenta: "Nenhum ativo associado"
 
 
 # [A3] - USUÁRIO SEM PERMISSÃO FINANCEIRA
 # ---------------------------------------------------------------
 
-# O ator utiliza uma sessão com SERVICO_VISUALIZAR, mas sem CONTA_VISUALIZAR.
+# 1. O ator utiliza uma sessão com SERVICO_VISUALIZAR, mas sem CONTA_VISUALIZAR.
 
-# O ator solicita o PDF individual de uma OS com conta vinculada.
+# 2. O ator solicita o PDF individual de uma OS com conta vinculada.
 
-# O sistema não inclui informações financeiras da conta.
+# 3. O sistema não inclui informações financeiras da conta.
 
-# A permissão de exportar a OS não concede automaticamente acesso aos dados financeiros.
+# 4. A permissão de exportar a OS não concede automaticamente acesso aos dados financeiros.
 
 
 # [A4] - OS COM CONTA ASSOCIADA
 # ---------------------------------------------------------------
 
-# O ator utiliza uma OS de preparação com uma única conta cuja elegibilidade foi confirmada. [P2]
+# 1. O ator utiliza uma OS de preparação com uma única conta cuja elegibilidade foi confirmada. [P2]
 
-# O ator possui SERVICO_VISUALIZAR e CONTA_VISUALIZAR e solicita o PDF individual.
+# 2. O ator possui SERVICO_VISUALIZAR e CONTA_VISUALIZAR e solicita o PDF individual.
 
-# O sistema inclui os dados da mesma conta apresentada na visualização detalhada:
+# 3. O sistema inclui os dados da mesma conta apresentada na visualização detalhada:
 # - Nome;
 # - Descrição, quando informada;
 # - Valor total;
@@ -129,19 +129,19 @@ Dados planejados:
 # - Tipo;
 # - Data de lançamento.
 
-# O ator compara os dados do PDF com os dados conhecidos da conta e com a visualização detalhada.
+# 4. O ator compara os dados do PDF com os dados conhecidos da conta e com a visualização detalhada.
 
 
 # [A5] - FALHA NA GERAÇÃO DO PDF
 # ---------------------------------------------------------------
 
-# O ator solicita a exportação individual.
+# 1. O ator solicita a exportação individual.
 
-# Durante a geração, ocorre uma falha.
+# 2. Durante a geração, ocorre uma falha.
 
-# O sistema encerra o carregamento e informa que não foi possível gerar o PDF.
+# 3. O sistema encerra o carregamento e informa que não foi possível gerar o PDF.
 
-# O sistema não disponibiliza arquivo inválido nem apresenta a mensagem de sucesso.
+# 4. O sistema não disponibiliza arquivo inválido nem apresenta a mensagem de sucesso.
 
 
 # [RN1] - CORRESPONDÊNCIA DO ARQUIVO
