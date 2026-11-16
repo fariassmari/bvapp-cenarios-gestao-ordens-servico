@@ -1,7 +1,7 @@
 '''
 UC004 - Visualizar ativos associados à Ordem de Serviço
 
-Objetivo: Permitir que o usuário consulte os ativos vinculado ao serviço da OS, agrupados por tipo, com suas quantidades e informações individuais.
+Objetivo: Permitir que o usuário consulte os ativos vinculados ao serviço da OS, agrupados por tipo, com suas quantidades e informações individuais.
 
 Requisitos relacionados:
 - Abertura, autorização e correspondência dos detalhes: CAs 23509, 23511, 23512 e 23513.
@@ -11,7 +11,7 @@ Requisitos relacionados:
 - Preservação da listagem: 34158.
 
 Ator:
-- Técnico autenticado com SERVICO_LISTAR, SERVICO_VISUALIZAR e ATIVO_VISUALIZAR.
+- Técnico
 
 Autoria:
 - Mariana Farias de Brito.
@@ -91,17 +91,17 @@ Dados planejados:
 # [A2] - USUÁRIO SEM PERMISSÃO PARA CONSULTAR ATIVOS
 # ---------------------------------------------------------------
 
-# 1. O ator utiliza uma sessão com SERVICO_VISUALIZAR, mas sem ATIVO_VISUALIZAR.
+# 1. O ator utiliza uma sessão autorizada a visualizar a OS, mas sem acesso aos ativos associados.
 
 # 2. O ator abre os detalhes da OS e tenta acessar os ativos.
 
 # 3. O sistema bloqueia a consulta dos ativos associados.
 
-# 4. Em outra variação, o ator possui ATIVO_VISUALIZAR, mas não possui SERVICO_VISUALIZAR.
+# 4. Em outra variação, o ator tem acesso aos ativos, mas não está autorizado a visualizar a OS.
 
 # 5. O sistema também bloqueia a consulta dos ativos dessa OS.
 
-# 6. As duas permissões são necessárias simultaneamente. [RN3]
+# 6. A consulta exige autorização para visualizar tanto a OS quanto os ativos associados. [RN3]
 
 
 # [A3] - CARREGAMENTO E FALHA NA CONSULTA
@@ -141,7 +141,7 @@ Dados planejados:
 # [RN3] - AUTORIZAÇÃO
 # ---------------------------------------------------------------
 
-# O acesso aos ativos associados exige autenticação e, simultaneamente, SERVICO_VISUALIZAR e ATIVO_VISUALIZAR.
+# O acesso aos ativos associados exige autenticação e autorização para visualizar a OS e os ativos.
 
 
 # [RN4] - ESCOPO DAS OPERAÇÕES

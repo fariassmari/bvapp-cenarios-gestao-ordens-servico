@@ -62,7 +62,7 @@ Sempre que aplicável, cada arquivo apresenta:
 - **Identificador e título:** identificação do caso de uso.
 - **Autoria e objetivo:** responsável e finalidade do cenário.
 - **Requisitos relacionados:** critérios de aceitação associados.
-- **Ator e pré-condições:** permissões e condições necessárias para iniciar o fluxo.
+- **Ator e pré-condições:** papel do usuário e condições necessárias para iniciar o fluxo.
 - **Dados planejados:** informações usadas para descrever as verificações.
 - **Fluxo principal `[FP]`:** sequência esperada de ações e respostas.
 - **Fluxos alternativos `[A1]`, `[A2]` etc.:** variações, erros, cancelamentos e restrições.

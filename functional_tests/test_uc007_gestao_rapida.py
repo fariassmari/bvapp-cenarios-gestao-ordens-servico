@@ -18,7 +18,7 @@ Requisitos relacionados:
 - Carregamento, ausência de resultados e falha em Atrasadas: CAs 34188 e 34189.
 
 Ator:
-- Técnico autenticado com SERVICO_LISTAR.
+- Técnico
 
 Autoria:
 - Mariana Farias de Brito.
@@ -110,7 +110,7 @@ Dados planejados:
 # [A4] - USUÁRIO SEM AUTORIZAÇÃO
 # ---------------------------------------------------------------
 
-# 1. O ator utiliza uma sessão sem SERVICO_LISTAR e tenta consultar os indicadores ou as listagens por status.
+# 1. O ator utiliza uma sessão sem autorização para consultar as OS e tenta acessar os indicadores ou as listagens por status.
 
 # 2. O sistema bloqueia essas consultas.
 

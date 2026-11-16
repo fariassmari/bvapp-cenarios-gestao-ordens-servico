@@ -20,7 +20,7 @@ Requisitos relacionados:
 - Exportação (formato não suportado): CA 34142.
 
 Ator:
-- Técnico autenticado com SERVICO_LISTAR.
+- Técnico
 
 Autoria:
 - Mariana Farias de Brito.
@@ -260,7 +260,7 @@ Essas quantidades são dados de teste, não limites da funcionalidade.
 # [A7] - CONSULTAR OU EXPORTAR SEM AUTORIZAÇÃO
 # ---------------------------------------------------------------
 
-# 1. Um usuário não autenticado ou sem SERVICO_LISTAR tenta solicitar a consulta ou a exportação de Ordens de Serviço.
+# 1. Um usuário não autenticado ou sem autorização tenta consultar ou exportar Ordens de Serviço.
 
 # 2. O sistema bloqueia a operação e não apresenta nem gera os dados solicitados.
 
@@ -365,9 +365,9 @@ Essas quantidades são dados de teste, não limites da funcionalidade.
 # [RN6] - AUTORIZAÇÃO
 # ---------------------------------------------------------------
 
-# A consulta e a exportação exigem usuário autenticado com SERVICO_LISTAR.
+# A consulta e a exportação exigem usuário autenticado e autorizado.
 
-# Solicitações sem autenticação ou sem a permissão devem ser bloqueadas.
+# Solicitações sem autenticação ou autorização devem ser bloqueadas.
 
 
 # [RN7] - ABRANGÊNCIA DA EXPORTAÇÃO

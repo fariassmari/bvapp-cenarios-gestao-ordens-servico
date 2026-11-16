@@ -13,7 +13,7 @@ Requisitos relacionados:
 - Ação no painel de detalhes: 34159.
 
 Ator:
-- Técnico autenticado com SERVICO_LISTAR, SERVICO_VISUALIZAR, ATIVO_VISUALIZAR e CONTA_VISUALIZAR.
+- Técnico
 
 Autoria:
 - Mariana Farias de Brito.
@@ -66,13 +66,13 @@ Dados planejados:
 
 # 7. O ator verifica que os dados da outra OS de preparação não foram utilizados no lugar dos dados de OS_REFERENCIA.
 
-# 8. Como possui ATIVO_VISUALIZAR, o ator confere os ativos não removidos atualmente vinculados ao serviço S01:
+# 8. Com acesso aos dados dos ativos, o ator confere os ativos não removidos atualmente vinculados ao serviço S01:
 # - Tipo;
 # - Número de série;
 # - Status;
 # - Data de entrada em operação, quando informada. [A2]
 
-# 9. Como possui CONTA_VISUALIZAR e OS_REFERENCIA não possui conta, o ator verifica a indicação:
+# 9. Com acesso aos dados da conta, o ator verifica a indicação para OS_REFERENCIA, que não possui conta vinculada:
 # "Nenhuma conta associada". [A3][A4]
 
 # 10. O ator confere que o nome do arquivo identifica a OS e contém a data e a hora da geração. [P1]
@@ -81,7 +81,7 @@ Dados planejados:
 # [A1] - USUÁRIO SEM AUTORIZAÇÃO PARA EXPORTAR
 # ---------------------------------------------------------------
 
-# 1. O ator utiliza uma sessão sem SERVICO_VISUALIZAR e solicita o PDF individual.
+# 1. O ator utiliza uma sessão sem autorização para visualizar a OS e solicita o PDF individual.
 
 # 2. O sistema bloqueia a exportação.
 
@@ -91,13 +91,13 @@ Dados planejados:
 # [A2] - PERMISSÃO E AUSÊNCIA DE ATIVOS
 # ---------------------------------------------------------------
 
-# 1. O ator utiliza uma sessão com SERVICO_VISUALIZAR, mas sem ATIVO_VISUALIZAR.
+# 1. O ator utiliza uma sessão autorizada a exportar a OS, mas sem acesso aos dados dos ativos.
 
 # 2. O ator solicita o PDF individual.
 
 # 3. O sistema não inclui informações dos ativos no arquivo.
 
-# 4. Em outra variação, o ator possui ATIVO_VISUALIZAR, mas o serviço da OS não possui ativos associados.
+# 4. Em outra variação, o ator tem acesso aos dados dos ativos, mas o serviço da OS não possui ativos associados.
 
 # 5. O PDF apresenta: "Nenhum ativo associado"
 
@@ -105,7 +105,7 @@ Dados planejados:
 # [A3] - USUÁRIO SEM PERMISSÃO FINANCEIRA
 # ---------------------------------------------------------------
 
-# 1. O ator utiliza uma sessão com SERVICO_VISUALIZAR, mas sem CONTA_VISUALIZAR.
+# 1. O ator utiliza uma sessão autorizada a exportar a OS, mas sem acesso aos dados da conta.
 
 # 2. O ator solicita o PDF individual de uma OS com conta vinculada.
 
@@ -119,7 +119,7 @@ Dados planejados:
 
 # 1. O ator utiliza uma OS de preparação com uma única conta cuja elegibilidade foi confirmada. [P2]
 
-# 2. O ator possui SERVICO_VISUALIZAR e CONTA_VISUALIZAR e solicita o PDF individual.
+# 2. O ator possui autorização para visualizar a OS e os dados da conta e solicita o PDF individual.
 
 # 3. O sistema inclui os dados da mesma conta apresentada na visualização detalhada:
 # - Nome;
@@ -157,10 +157,10 @@ Dados planejados:
 # [RN2] - AUTORIZAÇÃO POR SEÇÃO
 # ---------------------------------------------------------------
 
-# A exportação individual exige SERVICO_VISUALIZAR.
+# A exportação individual exige autorização para visualizar a OS.
 
-# Os dados de ativos exigem também ATIVO_VISUALIZAR.
+# A inclusão dos dados de ativos exige também autorização para consultá-los.
 
-# Os dados financeiros exigem também CONTA_VISUALIZAR.
+# A inclusão dos dados financeiros exige também autorização para consultar a conta.
 
 # A ausência de uma permissão adicional não autoriza a exposição dos dados da seção correspondente.

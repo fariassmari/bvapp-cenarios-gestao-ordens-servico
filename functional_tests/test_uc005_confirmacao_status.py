@@ -13,7 +13,7 @@ Requisitos relacionados:
 - Conclusão independentemente de nota fiscal: CA 23759.
 
 Ator:
-- Técnico autenticado com SERVICO_LISTAR, SERVICO_VISUALIZAR e SERVICO_EDITAR.
+- Técnico
 
 Autoria:
 - Mariana Farias de Brito.
@@ -83,7 +83,7 @@ Dados planejados:
 # [A2] - USUÁRIO SEM AUTORIZAÇÃO
 # ---------------------------------------------------------------
 
-# 1. O ator utiliza uma sessão sem SERVICO_EDITAR e tenta alterar o status da OS.
+# 1. O ator utiliza uma sessão sem autorização para editar a OS e tenta alterar seu status.
 
 # 2. O sistema bloqueia a alteração e preserva o status gravado.
 

@@ -10,7 +10,7 @@ Requisitos relacionados:
 - Carregamento e retorno à listagem: 34157 e 34158.
 
 Ator:
-- Técnico autenticado com SERVICO_LISTAR, SERVICO_VISUALIZAR e CONTA_VISUALIZAR.
+- Técnico
 
 Autoria:
 - Mariana Farias de Brito.
@@ -116,9 +116,9 @@ Dados planejados:
 # [A3] - USUÁRIO SEM PERMISSÃO PARA CONSULTAR A CONTA
 # ---------------------------------------------------------------
 
-# 1. O ator utiliza uma sessão com SERVICO_VISUALIZAR, mas sem CONTA_VISUALIZAR.
+# 1. O ator utiliza uma sessão autorizada a visualizar a OS, mas sem acesso aos dados da conta.
 
-# 2. O ator abre os detalhes da OS.
+# 2. O ator abre os detalhes da OS e tenta consultar a conta associada.
 
 # 3. O sistema permite consultar os detalhes autorizados da OS, mas bloqueia o acesso aos dados da conta e de seus pagamentos.
 
